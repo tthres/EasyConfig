@@ -1,3 +1,4 @@
+#include <iostream>
 #include <easy_config_define.h>
 
 int main()
@@ -7,5 +8,8 @@ int main()
     GET_CONFIG(CONFIG_TYPE_INI)->SetValue("INI.user", test);
     GET_CONFIG(CONFIG_TYPE_INI)->SetValue("INI.aaa", aaa);
     GET_CONFIG(CONFIG_TYPE_INI)->SetValue("JSON.user", test);
+
+    std::cout << "INI.user: " << GET_CONFIG(CONFIG_TYPE_INI)->GetValue<std::string>("INI.user", aaa) << std::endl;
+
     return 0;
 }
